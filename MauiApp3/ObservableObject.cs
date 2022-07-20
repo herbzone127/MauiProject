@@ -2,8 +2,6 @@ using System.ComponentModel;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Runtime.CompilerServices;
-using PropertyChangingEventArgs = System.ComponentModel.PropertyChangingEventArgs;
-using PropertyChangingEventHandler = System.ComponentModel.PropertyChangingEventHandler;
 
 namespace MauiApp3;
 
@@ -12,7 +10,7 @@ public abstract class ObservableObject : INotifyPropertyChanged, INotifyProperty
 
     public event PropertyChangedEventHandler? PropertyChanged;
 
-    public event PropertyChangingEventHandler? PropertyChanging;
+    public event Microsoft.Maui.Controls.PropertyChangingEventHandler? PropertyChanging;
 
     event System.ComponentModel.PropertyChangingEventHandler INotifyPropertyChanging.PropertyChanging
     {
@@ -44,14 +42,14 @@ public abstract class ObservableObject : INotifyPropertyChanged, INotifyProperty
     {
         VerifyPropertyName(propertyName);
 
-        PropertyChanging?.Invoke(this, new PropertyChangingEventArgs(propertyName));
+        PropertyChanging?.Invoke(this, new Microsoft.Maui.Controls.PropertyChangingEventArgs(propertyName));
     }
 
     public virtual void RaisePropertyChanging<T>(Expression<Func<T>> propertyExpression)
     {
         var propertyName = GetPropertyName(propertyExpression);
         if (!string.IsNullOrEmpty(propertyName))
-            PropertyChanging?.Invoke(this, new PropertyChangingEventArgs(propertyName));
+            PropertyChanging?.Invoke(this, new Microsoft.Maui.Controls.PropertyChangingEventArgs(propertyName));
     }
 
     public void VerifyPropertyName(string? propertyName)
@@ -83,7 +81,7 @@ public abstract class ObservableObject : INotifyPropertyChanged, INotifyProperty
 
 
     protected PropertyChangedEventHandler? PropertyChangedEventHandler => PropertyChanged;
-    protected PropertyChangingEventHandler? PropertyChangingEventHandler => PropertyChanging;
+    protected Microsoft.Maui.Controls.PropertyChangingEventHandler? PropertyChangingEventHandler => PropertyChanging;
 
 
     protected static string GetPropertyName<T>(Expression<Func<T>> propertyExpression)
