@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp3.LoginPopup">
+   
+        
+        <StackLayout Orientation="Vertical">
+            <StackLayout Orientation="Vertical">
+                <Grid BackgroundColor="White"
+                      >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="80"/>
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label BackgroundColor="Grey" 
+                           Padding="0" Margin="0"
+                           Grid.Row="0"
+                           Grid.Column="0"
+                           />
+                    <Label BackgroundColor="Grey" 
+                           Padding="0" Margin="0"
+                           Grid.Row="0"
+                           Grid.Column="1"
+                           />
+
+                    <Label HorizontalTextAlignment="Center" TextColor="Red"
+                           VerticalTextAlignment="Center" Grid.Row="1" Grid.Column="0" Text="Username"/>
+                    <Frame BorderColor="Black"
+                       Margin="5"
+                       Padding="1"
+                           Grid.Row="1"
+                           Grid.Column="1"
+                       CornerRadius="0"
+                       BackgroundColor="White"
+                           >
+                        <Entry x:Name="Email" Text="{Binding Email}"  
+                           Margin="3"
+                           Keyboard="Email"  
+                           TextColor="Black"
+                           BackgroundColor="White"/>
+                    </Frame>
+                    <Label HorizontalTextAlignment="Center" TextColor="Red"
+                           VerticalTextAlignment="Center" Grid.Row="2" Grid.Column="0" Text="Password"/>
+                    <Frame BorderColor="Black"
+                           Margin="5"
+                       Padding="1"
+                           Grid.Row="2"
+                           Grid.Column="1"
+                       CornerRadius="0"
+                       BackgroundColor="White"
+                           >
+                        <Entry x:Name="Password" Text="{Binding Password}"  
+                           IsPassword="True"  
+                           TextColor="Black"
+                           BackgroundColor="White"
+                           />
+                    </Frame>
+
+                    <Button Command="{Binding SubmitCommand}" Margin="3"
+                            Text="Login" TextColor="White"  
+                    FontAttributes="Bold" HorizontalOptions="End"  
+                            Grid.Row="3"
+                           Grid.Column="1"
+                    BackgroundColor="Red" 
+                            Clicked="Button_Clicked"
+                        CornerRadius="0"
+                            BorderColor="Transparent"/>
+                </Grid>
+            </StackLayout>
+
+        </StackLayout>
+    
+</ContentView>

@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp3.MainPage"
+             x:Name="mainPage"
+         
+             >
+    <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="LightGray"  >
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Image Source="logo_file.png" HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="120" />
+
+
+        <ContentView x:Name="popupView"
+                      Grid.Row="0" 
+                      HeightRequest="167"
+                       VerticalOptions="StartAndExpand" 
+           
+            Margin="10" Padding="0"  
+            WidthRequest="{OnIdiom Desktop=300, Phone=350}"
+                     >
+            <ContentView.Shadow>
+                <Shadow Brush="black" Radius="12" Opacity="0.3" Offset="10,15" />
+            </ContentView.Shadow>
+            <ContentView.GestureRecognizers>
+                <PanGestureRecognizer PanUpdated="PanGestureRecognizer_PanUpdated"/>
+            </ContentView.GestureRecognizers>
+        </ContentView>
+          
+      
+    </Grid>
+    
+
+</ContentPage>

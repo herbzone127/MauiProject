@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp3.MainMenuPage"
+             xmlns:local="clr-namespace:MauiApp3"
+             x:Name="mainPage"
+         
+             >
+    <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="LightGray"  >
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="40"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <TabbedPage>
+                <local:MainPage />
+              
+            </TabbedPage>
+        </Grid>
+        <Frame Grid.Column="1" BorderColor="Black" IsClippedToBounds="True" >
+            <Label Text="+"  FontSize="20"/>
+        </Frame>
+      
+    </Grid>
+    
+
+</ContentPage>
