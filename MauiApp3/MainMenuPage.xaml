@@ -6,11 +6,11 @@
              x:Name="mainPage"
          
              >
-    <Grid x:DataType="{x:Null}" RowSpacing="0">
+    <Grid x:DataType="{x:Null}" RowSpacing="0" BackgroundColor="White">
         <Grid.RowDefinitions>
-            <RowDefinition Height="45" />
-            <RowDefinition Height="45" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="1">

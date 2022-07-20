@@ -14,6 +14,7 @@ public class MainViewModel : ObservableObject
         this.TabVms = new ObservableCollection<TabViewModel>();
         this.TabVms.Add(new TabViewModel("TAB" + count));
         TapCommand = new Command(OnTapped);
+   
         this.CurrentTabVm = this.TabVms.FirstOrDefault();
     }
 
@@ -37,17 +38,22 @@ public class MainViewModel : ObservableObject
 
     public TabViewModel CurrentTabVm
     {
-        get => _currentTabVm;
+        get
+        {
+            return this._currentTabVm;
+        }
         set
         {
-            Set(ref _currentTabVm, value);
-            SetSelection();
+            this._currentTabVm = value; 
+            OnPropertyChanged(nameof(CurrentTabVm));
+            //SetSelection();
         }
     }
 
     private void SetSelection()
     {
+        
         //TabVms.ForEach(vm => vm.IsSelected = false);
-        CurrentTabVm.IsSelected = true;
+        //CurrentTabVm.IsSelected = true;
     }
 }

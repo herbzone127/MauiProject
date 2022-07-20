@@ -5,30 +5,23 @@ using System.Runtime.CompilerServices;
 
 namespace MauiApp3;
 
-public abstract class ObservableObject : INotifyPropertyChanged, INotifyPropertyChanging
+public abstract class ObservableObject : INotifyPropertyChanged
 {
+    protected ObservableObject()
+    {
+    }
 
-    public event PropertyChangedEventHandler? PropertyChanged;
+    public event PropertyChangedEventHandler PropertyChanged;
 
     public event Microsoft.Maui.Controls.PropertyChangingEventHandler? PropertyChanging;
 
-    event System.ComponentModel.PropertyChangingEventHandler INotifyPropertyChanging.PropertyChanging
-    {
-        add
-        {
-            throw new NotImplementedException();
-        }
 
-        remove
-        {
-            throw new NotImplementedException();
-        }
-    }
 
-    public virtual void RaisePropertyChanged([CallerMemberName] string? propertyName = null)
+    protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
     {
-        VerifyPropertyName(propertyName);
-        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        PropertyChangedEventHandler handler = PropertyChanged;
+        if (handler != null)
+            handler(this, new PropertyChangedEventArgs(propertyName));
     }
 
     public virtual void RaisePropertyChanged<T>(Expression<Func<T>> propertyExpression)
@@ -109,21 +102,21 @@ public abstract class ObservableObject : INotifyPropertyChanged, INotifyProperty
         return true;
     }
 
-    protected bool Set<T>(string? propertyName, ref T field, T newValue)
-    {
-        if (string.IsNullOrEmpty(propertyName))
-            return false;
+    //protected bool Set<T>(string? propertyName, ref T field, T newValue)
+    //{
+    //    if (string.IsNullOrEmpty(propertyName))
+    //        return false;
 
-        if (EqualityComparer<T>.Default.Equals(field, newValue))
-            return false;
+    //    if (EqualityComparer<T>.Default.Equals(field, newValue))
+    //        return false;
 
-        RaisePropertyChanging(propertyName);
-        field = newValue;
-        RaisePropertyChanged(propertyName);
+    //    RaisePropertyChanging(propertyName);
+    //    field = newValue;
+    //    RaisePropertyChanged(propertyName);
 
-        return true;
-    }
+    //    return true;
+    //}
 
-    protected bool Set<T>(ref T field, T newValue, [CallerMemberName] string? propertyName = null) => Set(propertyName, ref field, newValue);
+    //protected bool Set<T>(ref T field, T newValue, [CallerMemberName] string? propertyName = null) => Set(propertyName, ref field, newValue);
 
 }

@@ -12,7 +12,11 @@ public partial class MainMenuPage : ContentPage
 
     private void CarouselView_CurrentItemChanged(object sender, CurrentItemChangedEventArgs e)
     {
-        CustomTabsView.ScrollTo(e.CurrentItem, null, ScrollToPosition.Center, true);
+        if (e.CurrentItem != null)
+        {
+            CustomTabsView.ScrollTo(e.CurrentItem, null, ScrollToPosition.Center, true);
+        }
+     
     }
 
 }
