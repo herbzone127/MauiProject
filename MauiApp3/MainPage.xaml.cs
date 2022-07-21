@@ -1,4 +1,7 @@
-﻿namespace MauiApp3;
+﻿
+using MauiApp3.Interface;
+
+namespace MauiApp3;
 
 public partial class MainPage : ContentPage
 {
@@ -7,6 +10,12 @@ public partial class MainPage : ContentPage
     public MainPage()
 	{
 		InitializeComponent();
+        if(Device.Idiom== TargetIdiom.Desktop)
+        {
+            var fs = new FullScreenService();
+          bool s=  fs.TryFullScreen();
+        }
+      
         popupView.Content = new LoginPopup();
         //popupView.Panning += (dd, ee) =>
         //{
@@ -15,7 +24,7 @@ public partial class MainPage : ContentPage
         //        if (ee.Touches.Length == 1)
         //        {
         //            //draggableView.TranslationX = ee.Touches[0].X;
-        //            //draggableView.TranslationY = ee.Touches[0].Y;
+        //            //draggableView.TranslationY = ee.Touches[0].Y;new
         //            draggableView.TranslationX += ee.DeltaDistance.X;
         //            draggableView.TranslationY += ee.DeltaDistance.Y;
         //        }

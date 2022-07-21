@@ -17,8 +17,11 @@ public partial class App : MauiWinUIApplication
 	/// </summary>
 	public App()
 	{
-		this.InitializeComponent();
-        ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.Maximized;
+        ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.FullScreen;
+        this.InitializeComponent();
+
+      
+
 
     }
 

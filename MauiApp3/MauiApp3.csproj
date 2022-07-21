@@ -56,6 +56,15 @@
 	  <Compile Update="MainMenuPage.xaml.cs">
 	    <DependentUpon>MainMenuPage.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="Platforms\iOS\FullScreenService.cs">
+	    <ExcludeFromCurrentConfiguration>false</ExcludeFromCurrentConfiguration>
+	  </Compile>
+	  <Compile Update="Platforms\MacCatalyst\FullScreenService.cs">
+	    <ExcludeFromCurrentConfiguration>false</ExcludeFromCurrentConfiguration>
+	  </Compile>
+	  <Compile Update="Platforms\Tizen\FullScreenService.cs">
+	    <ExcludeFromCurrentConfiguration>false</ExcludeFromCurrentConfiguration>
+	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
