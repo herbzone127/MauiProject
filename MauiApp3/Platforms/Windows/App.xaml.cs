@@ -1,4 +1,5 @@
 ﻿using Microsoft.UI.Xaml;
+using Windows.UI.ViewManagement;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -17,8 +18,10 @@ public partial class App : MauiWinUIApplication
 	public App()
 	{
 		this.InitializeComponent();
-	}
+        ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.Maximized;
 
-	protected override MauiApp CreateMauiApp() => MauiProgram.CreateMauiApp();
+    }
+
+    protected override MauiApp CreateMauiApp() => MauiProgram.CreateMauiApp();
 }
 

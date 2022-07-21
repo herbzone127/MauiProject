@@ -35,24 +35,24 @@ public partial class MainPage : ContentPage
 		//SemanticScreenReader.Announce(CounterBtn.Text);
 	}
 
-    private void PanGestureRecognizer_PanUpdated(object sender, PanUpdatedEventArgs e)
-    {
-        switch (e.StatusType)
-        {
-            case GestureStatus.Running:
-                // Translate and ensure we don't pan beyond the wrapped user interface element bounds.
-                popupView.TranslationX =
-                  Math.Max(Math.Min(0, x + e.TotalX), -Math.Abs(popupView.Width - App.Current.MainPage.Width));
-                popupView.TranslationY =
-                  Math.Max(Math.Min(0, y + e.TotalY), -Math.Abs(popupView.Height - App.Current.MainPage.Height));
-                break;
+    //private void PanGestureRecognizer_PanUpdated(object sender, PanUpdatedEventArgs e)
+    //{
+    //    switch (e.StatusType)
+    //    {
+    //        case GestureStatus.Running:
+    //            // Translate and ensure we don't pan beyond the wrapped user interface element bounds.
+    //            popupView.TranslationX =
+    //              Math.Max(Math.Min(0, x + e.TotalX), -Math.Abs(popupView.Width - App.Current.MainPage.Width));
+    //            popupView.TranslationY =
+    //              Math.Max(Math.Min(0, y + e.TotalY), -Math.Abs(popupView.Height - App.Current.MainPage.Height));
+    //            break;
 
-            case GestureStatus.Completed:
-                // Store the translation applied during the pan
-                x = popupView.TranslationX;
-                y = popupView.TranslationY;
-                break;
-        }
-    }
+    //        case GestureStatus.Completed:
+    //            // Store the translation applied during the pan
+    //            x = popupView.TranslationX;
+    //            y = popupView.TranslationY;
+    //            break;
+    //    }
+    //}
 }
 

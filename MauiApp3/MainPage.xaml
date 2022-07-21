@@ -5,12 +5,12 @@
              x:Name="mainPage"
          
              >
-    <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="LightGray"  >
+    <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="White"  >
         
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Image Source="logo_file.png" HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="120" />
+        <Image Source="logo_file.png" HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="120" Opacity="0.3"/>
 
 
         <ContentView x:Name="popupView"
@@ -24,9 +24,6 @@
             <ContentView.Shadow>
                 <Shadow Brush="black" Radius="12" Opacity="0.3" Offset="10,15" />
             </ContentView.Shadow>
-            <ContentView.GestureRecognizers>
-                <PanGestureRecognizer PanUpdated="PanGestureRecognizer_PanUpdated"/>
-            </ContentView.GestureRecognizers>
         </ContentView>
           
       
