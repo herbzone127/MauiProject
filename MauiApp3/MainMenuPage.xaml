@@ -18,24 +18,28 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="{OnIdiom Phone=50,Desktop=80}"/>
             </Grid.ColumnDefinitions>
-            <Grid Grid.Column="1" >
-                <Frame  Margin="0" 
-                   BackgroundColor="White"
+            <Grid Grid.Column="1">
+                <Frame
+                   BackgroundColor="White" 
                    HeightRequest="30"
-                   WidthRequest="30"
+                   WidthRequest="25"
                    BorderColor="Black" IsClippedToBounds="True" CornerRadius="15"  
-                   VerticalOptions="CenterAndExpand" 
-                   HorizontalOptions="CenterAndExpand" 
+                   VerticalOptions="{OnIdiom Phone=CenterAndExpand, Desktop=CenterAndExpand}" 
+                   HorizontalOptions="{OnIdiom Phone=CenterAndExpand, Desktop=CenterAndExpand}" 
                    Padding="{OnIdiom Phone=0, Desktop=0}"
                
                    >
-                    <Label Text="+" TextColor="Red" FontSize="20" Padding="0" 
-                           WidthRequest="13"
-                       VerticalOptions="{OnIdiom Desktop=CenterAndExpand, Phone=CenterAndExpand}" HorizontalOptions="{OnIdiom Desktop=CenterAndExpand, Phone=CenterAndExpand}" >
-                        <Label.GestureRecognizers >
-                            <TapGestureRecognizer Command="{Binding TapCommand}"/>
-                        </Label.GestureRecognizers>
-                    </Label>
+                    <StackLayout WidthRequest="25" >
+                        <Label Text="+" TextColor="Red" FontSize="22" Padding="0,0,0,0" 
+                       
+                       VerticalOptions="{OnIdiom Phone=CenterAndExpand, Desktop=CenterAndExpand}" 
+                           HorizontalOptions="{OnIdiom Phone=CenterAndExpand, Desktop=CenterAndExpand}" >
+                            <Label.GestureRecognizers >
+                                <TapGestureRecognizer Command="{Binding TapCommand}"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </StackLayout>
+                  
                 </Frame>
             </Grid>
          
